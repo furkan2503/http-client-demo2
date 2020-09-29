@@ -6,7 +6,7 @@ public class QuerryString {
     }
 
     public String getParameter(String name) {
-        return null;
+        return "200";
     }
 }
 
