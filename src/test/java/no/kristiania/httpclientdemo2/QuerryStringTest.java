@@ -17,4 +17,12 @@ public class QuerryStringTest {
         assertEquals("404", querryString.getParameter("status"));
 
     }
+
+    @Test
+    void shouldRetrieveParameterByName(){
+        QuerryString querryString = new QuerryString("text=Hello");
+        assertEquals(null, querryString.getParameter("status"));
+        assertEquals("Hello", querryString.getParameter("text"));
+
+    }
 }

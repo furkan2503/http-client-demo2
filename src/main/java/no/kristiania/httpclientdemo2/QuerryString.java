@@ -1,12 +1,15 @@
 package no.kristiania.httpclientdemo2;
 
 public class QuerryString {
-    public QuerryString(String queryString){
+    private final String value;
 
+    public QuerryString(String queryString){
+        int equalsPos = queryString.indexOf('=');
+        value = queryString.substring(equalsPos+1);
     }
 
     public String getParameter(String name) {
-        return "200";
+        return value;
     }
 }
 
