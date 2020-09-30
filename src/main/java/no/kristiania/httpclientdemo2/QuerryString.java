@@ -1,21 +1,23 @@
 package no.kristiania.httpclientdemo2;
 
-public class QuerryString {
-    private final String value;
-    private final String parameterName;
+import java.util.HashMap;
+import java.util.Map;
 
-    public QuerryString(String queryString){
-        int equalsPos = queryString.indexOf('=');
-        value = queryString.substring(equalsPos+1);
-        parameterName = queryString.substring(0, equalsPos);
+public class QuerryString {
+    private Map<String, String> parameters = new HashMap<>();
+
+    public QuerryString(String querryString){
+        for (String parameter : querryString.split("&")) {
+            int equalsPos = parameter.indexOf('=');
+            String value = parameter.substring(equalsPos+1);
+            String parameterName = parameter.substring(0, equalsPos);
+            parameters.put(parameterName, value);
+
+        }
     }
 
     public String getParameter(String name) {
-
-        if (name.equals(parameterName)){
-            return value;
-        }
-        return null;
+        return parameters.get(name);
     }
 }
 
